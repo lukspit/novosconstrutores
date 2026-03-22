@@ -42,9 +42,9 @@ def format_message(items: list) -> str:
         prefix = f"{emoji} " if emoji else ""
         short_url = shorten_url(item["url"])
 
-        lines.append(f"{prefix}<b>{escape(item['titulo'])}</b>")
-        lines.append(escape(item["contexto"]))
-        lines.append(f"<i>→ {escape(item['por_que_importa'])}</i>")
+        lines.append(f"{prefix}<b>{escape(item.get('titulo', 'Sem título'))}</b>")
+        lines.append(escape(item.get("contexto", "")))
+        lines.append(f"<i>→ {escape(item.get('por_que_importa', ''))}</i>")
         lines.append(short_url)
 
         if i < len(items):
