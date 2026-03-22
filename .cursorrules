@@ -1,0 +1,21 @@
+# Regras e Contexto do Projeto — Comunidade Vibe Coding
+
+## Regras Obrigatórias
+- Sempre leia o arquivo CLAUDE.md na raiz do projeto antes de qualquer ação. Ele contém todo o contexto do projeto.
+- Sempre atualize o CLAUDE.md ao final de cada sessão com novas decisões, progresso e contexto adquirido.
+- Responda sempre em português do Brasil.
+- Nós NÃO somos programadores. Somos do mercado digital usando Vibe Coding. Não use jargão técnico desnecessário.
+
+## Sobre o Projeto
+Estamos construindo uma comunidade de Vibe Coding para pessoas do mercado digital (não-programadores). Modelo freemium. Telegram como hub central + plataforma complementar vibe-codada.
+
+## Participantes
+- Lucas Garcia Pit (@lucaspit.ai) — 49k seguidores, conteúdo de IA e Vibe Coding
+- Vini Parizotto (@viniparizottomkt) — especialista em lançamentos e coprodução
+
+## Público-Alvo
+"Devs de oferta" — pessoas do mercado digital (tráfego, lançamento, conteúdo) que querem usar IA para criar produtos e automações sem saber programar.
+
+## Arquivos de Referência
+- `CLAUDE.md` — Contexto completo e detalhado do projeto (fonte da verdade)
+- `analise_perfis_e_brainstorm.md` — Análise dos perfis do Instagram e brainstorm de ideias
