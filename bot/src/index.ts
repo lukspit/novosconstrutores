@@ -98,8 +98,8 @@ bot.callbackQuery(/^exp_(ini|int|ava)_(.+)$/, async (ctx) => {
 
   // Gera o menu principal final
     const finalMenu = new InlineKeyboard()
-      .webApp("Abrir Plataforma", miniAppUrl)
-      .row()
+      // .webApp("Abrir Plataforma", miniAppUrl)
+      // .row()
       .url("Acessar a Comunidade", "https://t.me/novosconstrutores")
       .url("Canal Oficial", "https://t.me/construtoresdebrasil");
 
@@ -149,15 +149,15 @@ bot.catch((err) => {
   console.error(`Erro no update ${err.ctx.update.update_id}:`, err.error);
 });
 
-// Comando para abrir o Mini App direto
-bot.command("app", async (ctx) => {
-  const appMenu = new InlineKeyboard()
-    .webApp("Abrir Plataforma", miniAppUrl);
-  
-  await ctx.reply("Acesse nossa Plataforma Completa e Vibe Coding clicando no botão abaixo:", {
-    reply_markup: appMenu,
-  });
-});
+// Comando para abrir o Mini App direto (TEMPORARIAMENTE DESATIVADO)
+// bot.command("app", async (ctx) => {
+//   const appMenu = new InlineKeyboard()
+//     .webApp("Abrir Plataforma", miniAppUrl);
+//   
+//   await ctx.reply("Acesse nossa Plataforma Completa e Vibe Coding clicando no botão abaixo:", {
+//     reply_markup: appMenu,
+//   });
+// });
 
 // Inicialização
 if (process.env.NODE_ENV !== "production" && !process.env.VERCEL) {

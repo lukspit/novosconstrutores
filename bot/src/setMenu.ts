@@ -9,9 +9,7 @@ async function setup() {
   try {
     await bot.api.setChatMenuButton({
       menu_button: {
-        type: "web_app",
-        text: "🚀 Plataforma",
-        web_app: { url: process.env.MINI_APP_URL! }
+        type: "default"
       }
     });
     console.log("Menu Button configured successfully!");
