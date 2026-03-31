@@ -98,14 +98,16 @@ bot.callbackQuery(/^exp_(cur|int|vib)_(.+)$/, async (ctx) => {
 
   // Gera o menu principal final
     const finalMenu = new InlineKeyboard()
-      .url("Acessar a Comunidade", "https://t.me/novosconstrutores")
+      .url("📢 Canal Oficial", "https://t.me/construtoresdebrasil")
       .row()
-      .url("Canal Oficial", "https://t.me/construtoresdebrasil");
+      .url("💬 Acessar a Comunidade", "https://t.me/novosconstrutores");
 
   await ctx.editMessageText(
     `<b>Perfil salvo com sucesso.</b>\n\n` +
     `Sua área principal é ${area} e seu nível de experiência é ${nivel}. O tagueamento foi concluído.\n\n` +
-    `Agora você faz parte da <b>Novos Construtores</b>. Acesse a comunidade pelo botão abaixo:`,
+    `Agora você faz parte da <b>Novos Construtores</b>!\n\n` +
+    `📢 <b>Primeiro, entre no Canal Oficial</b> — lá ficam os conteúdos e atualizações mais importantes.\n` +
+    `💬 Depois acesse a comunidade para trocar ideia com os outros membros.`,
     {
       parse_mode: "HTML",
       reply_markup: finalMenu,
