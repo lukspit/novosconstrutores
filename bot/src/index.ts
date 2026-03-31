@@ -8,9 +8,10 @@ dotenv.config();
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
+const miniAppUrl = process.env.MINI_APP_URL;
 
-if (!token || !supabaseUrl || !supabaseKey) {
-  throw new Error("Variáveis de ambiente incompletas (.env)");
+if (!token || !supabaseUrl || !supabaseKey || !miniAppUrl) {
+  throw new Error("Variáveis de ambiente incompletas (.env) - Não esqueça de configurar MINI_APP_URL");
 }
 
 const bot = new Bot(token);
@@ -97,7 +98,7 @@ bot.callbackQuery(/^exp_(ini|int|ava)_(.+)$/, async (ctx) => {
 
   // Gera o menu principal final
     const finalMenu = new InlineKeyboard()
-      .webApp("Abrir Plataforma", "https://fcc3729992aedaf0-191-177-191-247.serveousercontent.com")
+      .webApp("Abrir Plataforma", miniAppUrl)
       .row()
       .url("Acessar a Comunidade", "https://t.me/novosconstrutores")
       .url("Canal Oficial", "https://t.me/construtoresdebrasil");
@@ -151,7 +152,7 @@ bot.catch((err) => {
 // Comando para abrir o Mini App direto
 bot.command("app", async (ctx) => {
   const appMenu = new InlineKeyboard()
-    .webApp("Abrir Plataforma", "https://fcc3729992aedaf0-191-177-191-247.serveousercontent.com");
+    .webApp("Abrir Plataforma", miniAppUrl);
   
   await ctx.reply("Acesse nossa Plataforma Completa e Vibe Coding clicando no botão abaixo:", {
     reply_markup: appMenu,

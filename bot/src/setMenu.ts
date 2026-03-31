@@ -11,7 +11,7 @@ async function setup() {
       menu_button: {
         type: "web_app",
         text: "🚀 Plataforma",
-        web_app: { url: "https://fcc3729992aedaf0-191-177-191-247.serveousercontent.com" }
+        web_app: { url: process.env.MINI_APP_URL! }
       }
     });
     console.log("Menu Button configured successfully!");
