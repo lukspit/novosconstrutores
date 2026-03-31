@@ -24,13 +24,13 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 // 1. Comando /start - Pede a área de atuação
 bot.command("start", async (ctx) => {
   const keyboard = new InlineKeyboard()
-    .text("Tráfego", "area_trafego")
-    .text("Conteúdo/Copy", "area_conteudo")
+    .text("📈 Mkt / Copy", "area_mkt")
+    .text("⚙️ Automação (n8n)", "area_auto")
     .row()
-    .text("Lançamento", "area_lancamento")
-    .text("Dev/Tech", "area_tech")
+    .text("💻 Tech / Dev", "area_tech")
+    .text("🎨 Design / Vídeo", "area_design")
     .row()
-    .text("Outro", "area_outro");
+    .text("💼 Gestão / Estratégia", "area_gestao");
 
   await ctx.reply(
     `Olá, ${ctx.from?.first_name} 👋🏽 Bem-vindo à <b>Novos Construtores</b>.\n\n` +
@@ -49,11 +49,11 @@ bot.callbackQuery(/^area_(.+)$/, async (ctx) => {
   
   // O callback data das próximas opções vai guardar a área escolhida + a experiência
   const keyboard = new InlineKeyboard()
-    .text("Iniciante (Nunca usei)", `exp_ini_${area}`)
+    .text("🐣 Curioso (Uso básico)", `exp_cur_${area}`)
     .row()
-    .text("Intermediário (Uso o básico)", `exp_int_${area}`)
+    .text("🛠️ Integrador (Processos/Tarefas)", `exp_int_${area}`)
     .row()
-    .text("Avançado (Já codo com IA)", `exp_ava_${area}`);
+    .text("🚀 Vibe Coder (Sistemas/Apps)", `exp_vib_${area}`);
 
   await ctx.editMessageText(
     `Bacana. E qual o seu <b>nível de experiência</b> construindo projetos com IAs (Claude, Cursor, etc)?`,
@@ -66,13 +66,13 @@ bot.callbackQuery(/^area_(.+)$/, async (ctx) => {
 });
 
 // 3. Respondeu Experiência - Salva no Supabase e finaliza
-bot.callbackQuery(/^exp_(ini|int|ava)_(.+)$/, async (ctx) => {
-  const nivelCode = ctx.match[1]; // ini, int, ava
-  const areaCode = ctx.match[2]; // trafego, conteudo, etc.
+bot.callbackQuery(/^exp_(cur|int|vib)_(.+)$/, async (ctx) => {
+  const nivelCode = ctx.match[1]; // cur, int, vib
+  const areaCode = ctx.match[2]; // mkt, auto, etc.
 
   // Traduzindo os códigos pra salvar bonitinho no banco
-  const niveis: Record<string, string> = { ini: "Iniciante", int: "Intermediário", ava: "Avançado" };
-  const areas: Record<string, string> = { trafego: "Tráfego", conteudo: "Conteúdo/Copy", lancamento: "Lançamento", tech: "Dev/Tech", outro: "Outro" };
+  const niveis: Record<string, string> = { cur: "Curioso", int: "Integrador", vib: "Vibe Coder" };
+  const areas: Record<string, string> = { mkt: "Marketing e Copy", auto: "Automação", tech: "Tecnologia", design: "Design e Áudio", gestao: "Gestão e Estratégia" };
 
   const nivel = niveis[nivelCode] || "Não informado";
   const area = areas[areaCode] || "Não informado";
