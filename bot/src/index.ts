@@ -98,9 +98,8 @@ bot.callbackQuery(/^exp_(ini|int|ava)_(.+)$/, async (ctx) => {
 
   // Gera o menu principal final
     const finalMenu = new InlineKeyboard()
-      // .webApp("Abrir Plataforma", miniAppUrl)
-      // .row()
       .url("Acessar a Comunidade", "https://t.me/novosconstrutores")
+      .row()
       .url("Canal Oficial", "https://t.me/construtoresdebrasil");
 
   await ctx.editMessageText(
