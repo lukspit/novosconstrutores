@@ -8,10 +8,10 @@ dotenv.config();
 const token = process.env.TELEGRAM_BOT_TOKEN;
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseKey = process.env.SUPABASE_KEY;
-const miniAppUrl = process.env.MINI_APP_URL;
+const miniAppUrl = process.env.MINI_APP_URL || "https://seu-miniapp-aqui.vercel.app";
 
-if (!token || !supabaseUrl || !supabaseKey || !miniAppUrl) {
-  throw new Error("Variáveis de ambiente incompletas (.env) - Não esqueça de configurar MINI_APP_URL");
+if (!token || !supabaseUrl || !supabaseKey) {
+  throw new Error("Variáveis de ambiente incompletas (.env)");
 }
 
 const bot = new Bot(token);
